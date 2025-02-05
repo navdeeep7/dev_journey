@@ -42,7 +42,10 @@ const GfgCard = () => {
       <div className="flex items-center mb-4">
         <CodingLogo />
         <div>
-          <h2 className="text-2xl font-md text-white ml-2">{userData.username}</h2>
+          {/* <h2 className="text-2xl font-md text-white ml-2">{userData.username}</h2> */}
+          <h2 className="text-2xl font-md text-white ml-2">
+  {userData?.username || 'Guest'}
+</h2>
           
         </div>
       </div>
