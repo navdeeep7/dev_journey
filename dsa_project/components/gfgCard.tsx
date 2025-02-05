@@ -44,12 +44,12 @@ const GfgCard = () => {
         <div>
           {/* <h2 className="text-2xl font-md text-white ml-2">{userData.username}</h2> */}
           <h2 className="text-2xl font-md text-white ml-2">
-  {userData?.username || 'Guest'}
+  {userData?.info.username || 'Guest'}
 </h2>
           
         </div>
       </div>
-      <div className="space-y-2">
+      {/* <div className="space-y-2">
         <InfoRow label="College Rank" value={userData?.collage_rank || 'N/A'} />
         <InfoRow label="Overall Coding Score" value={userData?.overall_coding_score || 'N/A'} />
         <InfoRow label="Total Problems Solved" value={userData?.total_problems_solved || 'N/A' } />
@@ -60,11 +60,28 @@ const GfgCard = () => {
         <h3 className="text-lg  mb-2 text-white ">Problems Solved by Difficulty</h3>
         <div className="grid grid-cols-2 gap-2">
         
-          <ProblemCategory label="School" value={userData?.school_problems_solved || 'N/A'} />
-          <ProblemCategory label="Basic" value={userData?.basic_problems_solved || 'N/A'} />
-          <ProblemCategory label="Easy" value={userData?.easy_problems_solved || 'N/A'} />
+          <ProblemCategory label="School" value={userData?.solvedStats.school|| 'N/A'} />
+          <ProblemCategory label="Basic" value={userData?.solvedStats.basic || 'N/A'} />
+          <ProblemCategory label="Easy" value={userData?.solvedStats.easy|| 'N/A'} />
           <ProblemCategory label="Medium" value={userData?.medium_problems_solved || 'N/A'} />
           <ProblemCategory label="Hard" value={userData?.hard_problems_solved || 'N/A'} />
+        </div>
+      </div> */}
+      <div className="space-y-2">
+        <InfoRow label="Username" value={userData?.info?.userName || 'N/A'} />
+        <InfoRow label="Institute Rank" value={userData?.info?.instituteRank || 'N/A'} />
+        <InfoRow label="Current Streak" value={userData?.info?.currentStreak || '0'} />
+        <InfoRow label="Max Streak" value={userData?.info?.maxStreak || '0'} />
+      </div>
+      
+      <div className="mt-4">
+        <h3 className="text-lg mb-2 text-white">Problems Solved by Difficulty</h3>
+        <div className="grid grid-cols-2 gap-2">
+          <ProblemCategory label="School" value={userData?.solvedStats?.school?.count || 0} />
+          <ProblemCategory label="Basic" value={userData?.solvedStats?.basic?.count || 0} />
+          <ProblemCategory label="Easy" value={userData?.solvedStats?.easy?.count || 0} />
+          <ProblemCategory label="Medium" value={userData?.solvedStats?.medium?.count || 0} />
+          <ProblemCategory label="Hard" value={userData?.solvedStats?.hard?.count || 0} />
         </div>
       </div>
     </div>}

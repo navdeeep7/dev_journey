@@ -28,7 +28,7 @@ export async function GET(req:NextRequest){
         if(user){
            var userName=user.Gfg_username;
          
-            var userData=await axios.get(`https://coding-platform-profile-api.onrender.com/geeksforgeeks/${userName}`);
+            var userData=await axios.get(`https://geeks-for-geeks-api.vercel.app/${userName}`);
                 
                 
            if(userData.data){
