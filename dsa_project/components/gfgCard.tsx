@@ -50,20 +50,21 @@ const GfgCard = () => {
         </div>
       </div>
       <div className="space-y-2">
-        <InfoRow label="College Rank" value={userData.collage_rank} />
-        <InfoRow label="Overall Coding Score" value={userData.overall_coding_score} />
-        <InfoRow label="Total Problems Solved" value={userData.total_problems_solved} />
-        <InfoRow label="Monthly Score" value={userData.monthly_score} />
+        <InfoRow label="College Rank" value={userData?.collage_rank || 'N/A'} />
+        <InfoRow label="Overall Coding Score" value={userData?.overall_coding_score || 'N/A'} />
+        <InfoRow label="Total Problems Solved" value={userData?.total_problems_solved || 'N/A' } />
+        <InfoRow label="Monthly Score" value={userData?.monthly_score || 'N/A'} />
         
       </div>
       <div className="mt-4">
         <h3 className="text-lg  mb-2 text-white ">Problems Solved by Difficulty</h3>
         <div className="grid grid-cols-2 gap-2">
-          <ProblemCategory label="School" value={userData.school_problems_solved} />
-          <ProblemCategory label="Basic" value={userData.basic_problems_solved} />
-          <ProblemCategory label="Easy" value={userData.easy_problems_solved} />
-          <ProblemCategory label="Medium" value={userData.medium_problems_solved} />
-          <ProblemCategory label="Hard" value={userData.hard_problems_solved} />
+        
+          <ProblemCategory label="School" value={userData?.school_problems_solved || 'N/A'} />
+          <ProblemCategory label="Basic" value={userData?.basic_problems_solved || 'N/A'} />
+          <ProblemCategory label="Easy" value={userData?.easy_problems_solved || 'N/A'} />
+          <ProblemCategory label="Medium" value={userData?.medium_problems_solved || 'N/A'} />
+          <ProblemCategory label="Hard" value={userData?.hard_problems_solved || 'N/A'} />
         </div>
       </div>
     </div>}
