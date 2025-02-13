@@ -17,9 +17,14 @@ const InfoRow = ({ label, value, title }:any) => (
 
 
 export function CodechefCard(){
+  const info=localStorage.getItem("codechefInfo");
+  
   const[userData,setUserData]=useState<any>({});
   const [loading,setLoading]=useState(true);
- 
+  if(info)
+  {
+    setUserData(JSON.parse(info));
+  }
   useEffect(()=>{
     try{
       axios.get("https://dev-journey-zeta.vercel.app/api/platformRatings/codechef",{
@@ -30,6 +35,7 @@ export function CodechefCard(){
         setUserData(res.data.userData);
         if(res.data.success){
           setLoading(false);
+          localStorage.setItem("codechefInfo",JSON.stringify(res.data.userData));
         }
       })
     }
