@@ -17,34 +17,66 @@ const InfoRow = ({ label, value, title }:any) => (
 
 
 export function CodechefCard(){
-  const info=localStorage.getItem("codechefInfo");
+  // const info=localStorage.getItem("codechefInfo");
   
-  const[userData,setUserData]=useState<any>({});
-  const [loading,setLoading]=useState(true);
-  if(info)
-  {
-    setUserData(JSON.parse(info));
-  }
-  useEffect(()=>{
-    try{
-      axios.get("https://dev-journey-zeta.vercel.app/api/platformRatings/codechef",{
-        headers:{
-            authorization:localStorage.getItem("token")
-        } 
-    }).then(res=>{
-        setUserData(res.data.userData);
-        if(res.data.success){
-          setLoading(false);
-          localStorage.setItem("codechefInfo",JSON.stringify(res.data.userData));
+  // const[userData,setUserData]=useState<any>({});
+  // const [loading,setLoading]=useState(true);
+  // if(info)
+  // {
+  //   setUserData(JSON.parse(info));
+  // }
+  // useEffect(()=>{
+  //   try{
+  //     axios.get("https://dev-journey-zeta.vercel.app/api/platformRatings/codechef",{
+  //       headers:{
+  //           authorization:localStorage.getItem("token")
+  //       } 
+  //   }).then(res=>{
+  //       setUserData(res.data.userData);
+  //       if(res.data.success){
+  //         setLoading(false);
+  //         localStorage.setItem("codechefInfo",JSON.stringify(res.data.userData));
+  //       }
+  //     })
+  //   }
+  //   catch(e){
+  //     alert(e);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // },[])
+  const [userData, setUserData] = useState<any>(() => {
+    const info = localStorage.getItem("codechefInfo");
+    return info ? JSON.parse(info) : {};
+  });
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "https://dev-journey-zeta.vercel.app/api/platformRatings/codechef",
+          {
+            headers: {
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+
+        if (res.data.success) {
+          setUserData(res.data.userData);
+          localStorage.setItem("codechefInfo", JSON.stringify(res.data.userData));
         }
-      })
-    }
-    catch(e){
-      alert(e);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
-    
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        // ✅ Ensures loading is set to false even if the API call fails
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []); 
     return(
    <div>
  {loading? <div className="skeleton-loader  h-80 bg-cardBlue-custom rounded-lg shadow-md p-6  shadow-md p-6 animate-pulse">
