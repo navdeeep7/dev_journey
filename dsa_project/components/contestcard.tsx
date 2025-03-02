@@ -133,29 +133,42 @@ export function CodechefContestCard({contestInfo}:any){
     };
 
     return(
-        <div className='mb-2'>
-            <div className="bg-cardBlue-custom md:w-72 text-white flex flex-col items-center p-4 rounded-xl">
-                <div className="flex justify-center text-xl mt-2">
+        <div className="mb-4">
+            <div className="bg-cardBlue-custom md:w-72 text-white flex flex-col items-center p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                <div className="flex justify-center text-xl font-bold mt-1 mb-2">
                     {contestInfo.contest_code}
                 </div>
                 
-                <div className="pt-6">
-                    <div className="py-1">
-                        Contest Name: {contestInfo.contest_name}
+                <div className="w-full border-t border-blue-400 my-2 opacity-30"></div>
+                
+                <div className="pt-3 w-full">
+                    <div className="py-2 flex flex-col">
+                        <span className="text-blue-200 text-sm">Contest Name</span>
+                        <span className="font-medium">{contestInfo.contest_name}</span>
                     </div>
-                    <div className="py-1">
-                        Start Date: {contestInfo.contest_start_date} 
+                    <div className="py-2 flex flex-col">
+                        <span className="text-blue-200 text-sm">Start Date</span>
+                        <span className="font-medium">{contestInfo.contest_start_date}</span>
                     </div>
-                    <div className="py-1">
-                        Duration: {contestInfo.contest_duration} minutes 
+                    <div className="py-2 flex flex-col">
+                        <span className="text-blue-200 text-sm">Duration</span>
+                        <span className="font-medium">{contestInfo.contest_duration} minutes</span>
                     </div>
                 </div>
-                <div className="flex space-x-2">
+                
+                <div className="w-full border-t border-blue-400 my-3 opacity-30"></div>
+                
+                <div className="flex space-x-3 w-full justify-center mt-2">
                     <Link href="https://www.codechef.com/contests">
-                        <button type="button" className="text-white bg-hoverBlue-custom hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mt-2 px-5 py-2 me-2 mb-6 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">More Info</button>
+                        <button type="button" className="text-white bg-hoverBlue-custom hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors duration-300 focus:outline-none">More Info</button>
                     </Link>
                     <Link href={createGoogleCalendarUrl()} target="_blank">
-                        <button type="button" className="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm mt-2 px-5 py-2 me-2 mb-6 focus:outline-none">Add to Calendar</button>
+                        <button type="button" className="text-white bg-blue-400 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors duration-300 focus:outline-none flex items-center">
+                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path>
+                            </svg>
+                            Calendar
+                        </button>
                     </Link>
                 </div>
             </div>
@@ -191,32 +204,43 @@ export function CodeforcesContestCard({contestInfo}:any){
     };
 
     return(
-        <div>
-            <div className='mb-2'>
-                <div className="bg-cardBlue-custom md:w-72 text-white flex flex-col items-center p-4 rounded-xl">
-                    <div className="flex justify-center text-xl mt-2">
-                        {contestInfo.name}
+        <div className="mb-4">
+            <div className="bg-cardBlue-custom md:w-72 text-white flex flex-col items-center p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                <div className="flex justify-center text-xl font-bold mt-1 mb-2">
+                    {contestInfo.name}
+                </div>
+                
+                <div className="w-full border-t border-blue-400 my-2 opacity-30"></div>
+                
+                <div className="pt-3 w-full">
+                    <div className="py-2 flex flex-col">
+                        <span className="text-blue-200 text-sm">Contest ID</span>
+                        <span className="font-medium">{contestInfo.id}</span>
                     </div>
-                    
-                    <div className="pt-6">
-                        <div className="py-1">
-                            Contest ID: {contestInfo.id}
-                        </div>
-                        <div className="py-1">
-                            Start Time: {date}
-                        </div>
-                        <div className="py-1">
-                            Duration: {contestInfo.durationSeconds/60} minutes 
-                        </div>
+                    <div className="py-2 flex flex-col">
+                        <span className="text-blue-200 text-sm">Start Time</span>
+                        <span className="font-medium">{date}</span>
                     </div>
-                    <div className="flex space-x-2">
-                        <Link href="https://codeforces.com/contests">
-                            <button type="button" className="text-white bg-hoverBlue-custom hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mt-2 px-5 py-2 me-2 mb-6 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">More Info</button>
-                        </Link>
-                        <Link href={createGoogleCalendarUrl()} target="_blank">
-                            <button type="button" className="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm mt-2 px-5 py-2 me-2 mb-6 focus:outline-none">Add to Calendar</button>
-                        </Link>
+                    <div className="py-2 flex flex-col">
+                        <span className="text-blue-200 text-sm">Duration</span>
+                        <span className="font-medium">{contestInfo.durationSeconds/60} minutes</span>
                     </div>
+                </div>
+                
+                <div className="w-full border-t border-blue-400 my-3 opacity-30"></div>
+                
+                <div className="flex space-x-3 w-full justify-center mt-2">
+                    <Link href="https://codeforces.com/contests">
+                        <button type="button" className="text-white bg-hoverBlue-custom hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors duration-300 focus:outline-none">More Info</button>
+                    </Link>
+                    <Link href={createGoogleCalendarUrl()} target="_blank">
+                        <button type="button" className="text-white bg-blue-400 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors duration-300 focus:outline-none flex items-center">
+                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path>
+                            </svg>
+                            Calendar
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -251,29 +275,39 @@ export function LeetcodeContestCard({contestInfo}:any){
     };
 
     return(
-        <div>
-            <div className='mb-2'>
-                <div className="bg-cardBlue-custom md:w-72 text-white flex flex-col items-center p-4 rounded-xl">
-                    <div className="flex justify-center text-xl mt-2">
-                        {contestInfo.title}
+        <div className="mb-4">
+            <div className="bg-cardBlue-custom md:w-72 text-white flex flex-col items-center p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                <div className="flex justify-center text-xl font-bold mt-1 mb-2">
+                    {contestInfo.title}
+                </div>
+                
+                <div className="w-full border-t border-blue-400 my-2 opacity-30"></div>
+                
+                <div className="pt-3 w-full">
+                    <div className="py-2 flex flex-col">
+                        <span className="text-blue-200 text-sm">Start Time</span>
+                        <span className="font-medium">{date}</span>
                     </div>
-                    
-                    <div className="pt-6">
-                        <div className="py-1">
-                            Start Time: {date}
-                        </div>
-                        <div className="py-1">
-                            Duration: {contestInfo.duration/60} minutes 
-                        </div>
+                    <div className="py-2 flex flex-col">
+                        <span className="text-blue-200 text-sm">Duration</span>
+                        <span className="font-medium">{contestInfo.duration/60} minutes</span>
                     </div>
-                    <div className="flex space-x-2">
-                        <Link href="https://leetcode.com/contest/">
-                            <button type="button" className="text-white bg-hoverBlue-custom hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mt-2 px-5 py-2 me-2 mb-6 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">More Info</button>
-                        </Link>
-                        <Link href={createGoogleCalendarUrl()} target="_blank">
-                            <button type="button" className="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm mt-2 px-5 py-2 me-2 mb-6 focus:outline-none">Add to Calendar</button>
-                        </Link>
-                    </div>
+                </div>
+                
+                <div className="w-full border-t border-blue-400 my-3 opacity-30"></div>
+                
+                <div className="flex space-x-3 w-full justify-center mt-2">
+                    <Link href="https://leetcode.com/contest/">
+                        <button type="button" className="text-white bg-hoverBlue-custom hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors duration-300 focus:outline-none">More Info</button>
+                    </Link>
+                    <Link href={createGoogleCalendarUrl()} target="_blank">
+                        <button type="button" className="text-white bg-blue-400 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition-colors duration-300 focus:outline-none flex items-center">
+                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path>
+                            </svg>
+                            Calendar
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
