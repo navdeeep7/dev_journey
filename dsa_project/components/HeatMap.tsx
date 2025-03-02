@@ -297,7 +297,6 @@
 // export default HeatMap;
 
 
-
 import React, { useState, useRef } from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import { Tooltip } from 'react-tooltip';
@@ -349,15 +348,20 @@ const HeatMap: React.FC<HeatMapProps> = ({ data, title = "Activity Heatmap" }) =
     });
   };
 
-  // Define CSS classes for the color scale
+  // Add custom CSS for the heatmap
   React.useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
-      .react-calendar-heatmap .color-empty { fill: #ebedf0; }
-      .react-calendar-heatmap .color-scale-1 { fill: #c6e48b; }
-      .react-calendar-heatmap .color-scale-2 { fill: #7bc96f; }
-      .react-calendar-heatmap .color-scale-3 { fill: #239a3b; }
-      .react-calendar-heatmap .color-scale-4 { fill: #196127; }
+      .react-calendar-heatmap .color-empty { fill: #e5e7eb; }
+      .react-calendar-heatmap .color-scale-1 { fill: #86efac; }
+      .react-calendar-heatmap .color-scale-2 { fill: #4ade80; }
+      .react-calendar-heatmap .color-scale-3 { fill: #22c55e; }
+      .react-calendar-heatmap .color-scale-4 { fill: #15803d; }
+      
+      .react-calendar-heatmap rect:hover {
+        stroke: #374151;
+        stroke-width: 1px;
+      }
     `;
     document.head.appendChild(style);
     return () => {
@@ -373,10 +377,10 @@ const HeatMap: React.FC<HeatMapProps> = ({ data, title = "Activity Heatmap" }) =
           <span>Less</span>
           <ul className="flex mx-2">
             <li className="w-3 h-3 bg-gray-200 rounded-sm mx-1"></li>
-            <li className="w-3 h-3" style={{ backgroundColor: '#c6e48b' }}></li>
-            <li className="w-3 h-3" style={{ backgroundColor: '#7bc96f' }}></li>
-            <li className="w-3 h-3" style={{ backgroundColor: '#239a3b' }}></li>
-            <li className="w-3 h-3" style={{ backgroundColor: '#196127' }}></li>
+            <li className="w-3 h-3 bg-green-200 rounded-sm mx-1"></li>
+            <li className="w-3 h-3 bg-green-400 rounded-sm mx-1"></li>
+            <li className="w-3 h-3 bg-green-600 rounded-sm mx-1"></li>
+            <li className="w-3 h-3 bg-green-800 rounded-sm mx-1"></li>
           </ul>
           <span>More</span>
         </div>
@@ -391,7 +395,7 @@ const HeatMap: React.FC<HeatMapProps> = ({ data, title = "Activity Heatmap" }) =
           &lt;
         </button>
 
-        <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 w-full px-10" ref={scrollContainerRef}>
+        <div className="overflow-x-auto w-full px-10" ref={scrollContainerRef}>
           <div className="min-w-[900px]"> {/* Prevent shrinking */}
             <CalendarHeatmap
               startDate={startDate}
@@ -409,7 +413,6 @@ const HeatMap: React.FC<HeatMapProps> = ({ data, title = "Activity Heatmap" }) =
                   'data-tooltip-id': tooltipId,
                   'data-tooltip-content': JSON.stringify({ date: value.date, count: value.count }),
                   'data-tooltip-variant': 'light',
-                  'className': 'cursor-pointer'
                 };
               }}
               showWeekdayLabels={true}

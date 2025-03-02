@@ -26,6 +26,13 @@ const config: Config = {
       },animation: {
         'pulse': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
+      safelist: [
+        'fill-gray-200',
+        'fill-green-200',
+        'fill-green-400',
+        'fill-green-600',
+        'fill-green-800',
+      ],
      
       colors: {
         grey: {
