@@ -93,17 +93,14 @@ export default function Contests(){
 
     useEffect(()=>{
         try{
-            axios.get("https://proxy.cors.sh/https://codeforces.com/api/contest.list?",{
-                headers:{
-                    "x-cors-api-key":"temp_adfb017fadb769bcaf560cce1ff7479f"
-                }
-            }).then(res=>{
-                setCodeforcesContests(res.data.result);
-                console.log(res.data.result);
-                if(res.data){
-                    setforcesLoading(false);
-                }
-            })
+            axios.get("/api/proxy")
+  .then(res => {
+    setCodeforcesContests(res.data.result);
+    console.log(res.data.result);
+    if (res.data) {
+      setforcesLoading(false);
+    }
+  })
         }
         catch{
             alert("error while fetching data,please refresh")
