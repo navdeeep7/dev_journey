@@ -94,13 +94,13 @@ export default function Contests(){
     useEffect(()=>{
         try{
             axios.get("/api/proxy")
-  .then(res => {
-    setCodeforcesContests(res.data.result);
-    console.log(res.data.result);
-    if (res.data) {
-      setforcesLoading(false);
-    }
-  })
+            .then(res => {
+              setCodeforcesContests(res.data.result);
+              console.log(res.data.result);
+              if (res.data) {
+                setforcesLoading(false);
+              }
+            })
         }
         catch{
             alert("error while fetching data,please refresh")

@@ -1,18 +1,18 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   try {
     const response = await fetch(
       'https://codeforces.com/api/contest.list?',
       {
         method: 'GET',
-   
+       
       }
     );
 
     const data = await response.json();
-    res.status(response.status).json(data);
+    return NextResponse.json(data);
   } catch (error) {
-    res.status(500).json({ error: 'Error fetching data' });
+    return NextResponse.json({ error: 'Error fetching data' }, { status: 500 });
   }
 }
