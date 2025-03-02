@@ -20,7 +20,7 @@ export default function ProjectCard({project,handleDelete}){
     const router=  useRouter();
      function onDelete(){
         setLoading(true)
-        axios.post("https://dev-journey-zeta.vercel.app/api/deleteProject",projectId).then(res=>{
+        axios.post("http://localhost:3000/api/deleteProject",projectId).then(res=>{
             
             handleDelete();
             setLoading(false);

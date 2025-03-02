@@ -5,6 +5,7 @@ import axios from "axios";
 import Link from 'next/link'
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
+import { stringify } from "querystring";
 
 
 export default function RootLayout({
@@ -17,13 +18,14 @@ export default function RootLayout({
    const[loading,setLoading]=useState(true);
    useEffect(()=>{
     try{
-      axios.get("https://dev-journey-zeta.vercel.app/api/dashboard",{
+      axios.get("http://localhost:3000/api/dashboard",{
         headers:{
           //@ts-ignore
           authorization:localStorage.getItem("token") 
              }
       }).then(res=>{
         if(res.data.success){
+          localStorage.setItem("user",JSON.stringify(res.data.user));
           setName(res.data.user.name);
           setLoading(false)
         }

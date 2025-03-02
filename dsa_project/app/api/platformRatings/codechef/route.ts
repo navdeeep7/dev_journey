@@ -27,8 +27,9 @@ export async function GET(req:NextRequest){
             
         if(user){
            var userName=user.Codechef_username;
+            
          
-            var userData=await axios.get(`https://coding-platform-profile-api.onrender.com/codechef/${userName}`);
+            var userData=await axios.get(`https://codechef-api.vercel.app/handle/${userName}`);
                 
                 
            if(userData.data){

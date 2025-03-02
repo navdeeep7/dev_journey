@@ -1,7 +1,8 @@
 "use client"
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import HeatMap from "./HeatMap";
+import React from "react";
 
 const InfoRow = ({ label, value, title }:any) => (
   <div className="flex justify-between">
@@ -45,8 +46,8 @@ export function CodechefCard(){
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // },[])
   const [userData, setUserData] = useState<any>(() => {
-    const info = localStorage.getItem("codechefInfo");
-    return info ? JSON.parse(info) : {};
+   
+    
   });
 
   const [loading, setLoading] = useState(true);
@@ -55,7 +56,7 @@ export function CodechefCard(){
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://dev-journey-zeta.vercel.app/api/platformRatings/codechef",
+          "http://localhost:3000/api/platformRatings/codechef",
           {
             headers: {
               authorization: localStorage.getItem("token"),
@@ -65,7 +66,7 @@ export function CodechefCard(){
 
         if (res.data.success) {
           setUserData(res.data.userData);
-          localStorage.setItem("codechefInfo", JSON.stringify(res.data.userData));
+         
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -95,17 +96,20 @@ export function CodechefCard(){
               
                 <h2 className="text-2xl  text-white">
                 
-                  {userData.username}</h2>
+                  {userData.name}</h2>
               </div>
               <div className="space-y-2">
                 
-                <InfoRow label="Country"  value={userData.country} />
-                <InfoRow label="Rating" value={userData.rating.slice(0,4)} title="Provisional Rating, click to know more" />
-                <InfoRow label="Global Rank" value={userData.global_rank} />
-                <InfoRow label="Country Rank" value={userData.country_rank} />
+                <InfoRow label="Country"  value={userData.countryName} />
+                <InfoRow label="Rating" value={userData.currentRating} title="Provisional Rating, click to know more" />
+                <InfoRow label="Global Rank" value={userData.globalRank} />
+                <InfoRow label="Country Rank" value={userData.countryRank} />
                 <InfoRow label="Stars" value={<span className="text-yellow-400">{userData.stars}</span>} />
-                <InfoRow label="Contests" value={userData.no_of_contest} />
-                <InfoRow label="Problems Solved" value={userData.problems_solved} />
+                
+            {/* Other content of the CodeChef card */}
+            
+            
+            <HeatMap data={userData.heatMap}/>
               </div>
             </div>
                 </div>}

@@ -22,7 +22,7 @@ export default function Signin(){
     })
     function handleSignin(){
         setLoading(true)
-        axios.post("https://dev-journey-zeta.vercel.app/api/user/signin",signinInput).then(res=>{
+        axios.post("http://localhost:3000/api/user/signin",signinInput).then(res=>{
             alert(res.data.msg);
             setLoading(false)
             if(res.data.success){

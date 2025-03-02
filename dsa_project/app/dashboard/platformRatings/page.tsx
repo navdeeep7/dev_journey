@@ -26,10 +26,16 @@ export default function PlatformRatings(){
   Codeforces_username: "",
   Gfg_username:""
   });
+  //@ts-ignore
+
   const[loading,setLoading]=useState(true);
   useEffect(()=>{
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser ? JSON.parse(storedUser) : null);
+    }
     try{
-      axios.get("https://dev-journey-zeta.vercel.app/api/dashboard",{
+      axios.get("http://localhost:3000/api/dashboard",{
         headers:{
           //@ts-ignore
           authorization:localStorage.getItem("token") 

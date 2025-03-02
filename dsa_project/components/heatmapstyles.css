@@ -1,0 +1,194 @@
+/* HeatmapStyles.css */
+.heatmap-container {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heatmap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .heatmap-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .heatmap-legend {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    color: #666;
+  }
+  
+  .legend-squares {
+    display: flex;
+    margin: 0 6px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .legend-square {
+    width: 10px;
+    height: 10px;
+    margin: 0 1px;
+    border-radius: 2px;
+  }
+  
+  .legend-square-0 {
+    background-color: #ebedf0;
+  }
+  
+  .legend-square-1 {
+    background-color: #9be9a8;
+  }
+  
+  .legend-square-2 {
+    background-color: #40c463;
+  }
+  
+  .legend-square-3 {
+    background-color: #30a14e;
+  }
+  
+  .legend-square-4 {
+    background-color: #216e39;
+  }
+  
+  .heatmap-scroll-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .heatmap-scroll-wrapper {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+    width: 100%;
+    padding: 0;
+    margin: 0 26px;
+  }
+  
+  .heatmap-scroll-wrapper::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .heatmap-scroll-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+  }
+  
+  .heatmap-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 2px;
+  }
+  
+  .scroll-button {
+    position: absolute;
+    z-index: 10;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .scroll-button:hover {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  .scroll-left {
+    left: 0;
+  }
+  
+  .scroll-right {
+    right: 0;
+  }
+  
+  /* Override the default react-calendar-heatmap styles */
+  .react-calendar-heatmap {
+    width: 100%;
+    min-width: 750px;
+  }
+  
+  .react-calendar-heatmap text {
+    font-size: 10px;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap-month-label {
+    font-size: 10px;
+    fill: #666;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap-weekday-label {
+    font-size: 9px;
+    fill: #999;
+  }
+  
+  /* Custom color scale for the cells */
+  .react-calendar-heatmap .color-empty {
+    fill: #ebedf0;
+  }
+  
+  .react-calendar-heatmap .color-scale-1 {
+    fill: #9be9a8;
+  }
+  
+  .react-calendar-heatmap .color-scale-2 {
+    fill: #40c463;
+  }
+  
+  .react-calendar-heatmap .color-scale-3 {
+    fill: #30a14e;
+  }
+  
+  .react-calendar-heatmap .color-scale-4 {
+    fill: #216e39;
+  }
+  
+  .react-calendar-heatmap rect {
+    rx: 1px;  /* Rounded corners */
+    stroke: white;
+    stroke-width: 1px;  /* Space between cells */
+    cursor: pointer;
+  }
+  
+  /* Tooltip content styles */
+  .heatmap-tooltip {
+    padding: 8px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  .tooltip-date {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+  
+  .tooltip-value {
+    font-size: 12px;
+    color: #666;
+  }

@@ -65,7 +65,7 @@ export default function Projects(){
           )
           .then(res=>{
             setLoading(false);
-            axios.get('https://dev-journey-zeta.vercel.app/api/project',{
+            axios.get('http://localhost:3000/api/project',{
                 headers:{
                     "Authorization":localStorage.getItem("token")
                 }}
