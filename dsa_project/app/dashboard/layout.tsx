@@ -53,6 +53,7 @@ export default function RootLayout({
    },[router])
    function logout(){
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     router.push("/")
    }
    const[contest,setContest]=useState(false);
