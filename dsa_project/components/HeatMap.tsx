@@ -296,7 +296,6 @@
 
 // export default HeatMap;
 
-
 import React, { useState, useRef } from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import { Tooltip } from 'react-tooltip';
@@ -371,18 +370,18 @@ const HeatMap: React.FC<HeatMapProps> = ({ data, title = "Activity Heatmap" }) =
 
   return (
     <div className="w-full mt-2 p-4 bg-white rounded-lg shadow-md">
-      <div className="flex justify-between items-center mb-3">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 gap-2">
         <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
-        <div className="flex items-center text-xs text-gray-500">
-          <span>Less</span>
-          <ul className="flex mx-2">
-            <li className="w-3 h-3 bg-gray-200 rounded-sm mx-1"></li>
-            <li className="w-3 h-3 bg-green-200 rounded-sm mx-1"></li>
-            <li className="w-3 h-3 bg-green-400 rounded-sm mx-1"></li>
-            <li className="w-3 h-3 bg-green-600 rounded-sm mx-1"></li>
-            <li className="w-3 h-3 bg-green-800 rounded-sm mx-1"></li>
-          </ul>
-          <span>More</span>
+        <div className="flex items-center text-xs text-gray-500 self-start sm:self-auto">
+          <span className="mr-1">Less</span>
+          <div className="flex">
+            <div className="w-3 h-3 bg-gray-200 rounded-sm mr-1"></div>
+            <div className="w-3 h-3 bg-green-200 rounded-sm mr-1"></div>
+            <div className="w-3 h-3 bg-green-400 rounded-sm mr-1"></div>
+            <div className="w-3 h-3 bg-green-600 rounded-sm mr-1"></div>
+            <div className="w-3 h-3 bg-green-800 rounded-sm mr-1"></div>
+          </div>
+          <span className="ml-1">More</span>
         </div>
       </div>
 
