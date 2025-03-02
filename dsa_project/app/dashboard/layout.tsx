@@ -24,28 +24,31 @@ export default function RootLayout({
       const user=JSON.parse(localStorage.getItem("user"));
       setName(user.name);
     }
-    setLoading(true);
-    try{
-      axios.get("https://dev-journey-zeta.vercel.app/api/dashboard",{
-        headers:{
-          //@ts-ignore
-          authorization:localStorage.getItem("token") 
-             }
-      }).then(res=>{
-        if(res.data.success){
-          localStorage.setItem("user",JSON.stringify(res.data.user));
-          setName(res.data.user.name);
-          setLoading(false)
-        }
-        else{
-          router.push("/signin")
-        }
-  
-      })
+    else{
+      setLoading(true);
+      try{
+        axios.get("https://dev-journey-zeta.vercel.app/api/dashboard",{
+          headers:{
+            //@ts-ignore
+            authorization:localStorage.getItem("token") 
+               }
+        }).then(res=>{
+          if(res.data.success){
+            localStorage.setItem("user",JSON.stringify(res.data.user));
+            setName(res.data.user.name);
+            setLoading(false)
+          }
+          else{
+            router.push("/signin")
+          }
+    
+        })
+      }
+      catch{
+        alert("error fetching username");
+      }
     }
-    catch{
-      alert("error fetching username");
-    }
+    
 
    },[router])
    function logout(){

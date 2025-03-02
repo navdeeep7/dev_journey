@@ -28,30 +28,35 @@ export default function PlatformRatings(){
   });
   //@ts-ignore
 
-  const[loading,setLoading]=useState(true);
+  const[loading,setLoading]=useState(false);
   useEffect(()=>{
-    if (typeof window !== "undefined") {
+    //@ts-ignore
+    if (JSON.parse(localStorage.getItem("user"))) {
       const storedUser = localStorage.getItem("user");
       setUser(storedUser ? JSON.parse(storedUser) : null);
     }
-    try{
-      axios.get("https://dev-journey-zeta.vercel.app/api/dashboard",{
-        headers:{
-          //@ts-ignore
-          authorization:localStorage.getItem("token") 
-             }
-      }).then(res=>{
-        if(res.data.success){
-          setUser(res.data.user);
-          setLoading(false);
-        }
-        
-  
-      })
+    else{
+      setLoading(true);
+      try{
+        axios.get("https://dev-journey-zeta.vercel.app/api/dashboard",{
+          headers:{
+            //@ts-ignore
+            authorization:localStorage.getItem("token") 
+               }
+        }).then(res=>{
+          if(res.data.success){
+            setUser(res.data.user);
+            setLoading(false);
+          }
+          
+    
+        })
+      }
+      catch{
+        alert("error fetching username");
+      }
     }
-    catch{
-      alert("error fetching username");
-    }
+    
 
    },[])
    
