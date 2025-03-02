@@ -15,8 +15,16 @@ export default function RootLayout({
   }>) {
     const router=useRouter();
    const[name,setName]=useState("");
-   const[loading,setLoading]=useState(true);
+   const[loading,setLoading]=useState(false);
    useEffect(()=>{
+    //@ts-ignore
+    if(localStorage.getItem("user"))
+    {
+      //@ts-ignore
+      const user=JSON.parse(localStorage.getItem("user"));
+      setName(user.name);
+    }
+    setLoading(true);
     try{
       axios.get("https://dev-journey-zeta.vercel.app/api/dashboard",{
         headers:{
