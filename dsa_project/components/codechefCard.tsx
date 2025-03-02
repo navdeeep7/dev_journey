@@ -56,7 +56,7 @@ export function CodechefCard(){
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/platformRatings/codechef",
+          "https://dev-journey-zeta.vercel.app/api/platformRatings/codechef",
           {
             headers: {
               authorization: localStorage.getItem("token"),

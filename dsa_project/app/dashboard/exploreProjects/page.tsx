@@ -8,7 +8,7 @@ export default function ExploreProjects(){
     const[projects,setProjects]=useState<any>([]);
     const[loading,setLoading]=useState(true);
     useEffect(()=>{
-        axios.get("http://localhost:3000/api/allProjects").then(res=>{
+        axios.get("https://dev-journey-zeta.vercel.app/api/allProjects").then(res=>{
             setProjects(res.data);
             setLoading(false);
         })

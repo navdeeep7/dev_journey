@@ -14,7 +14,7 @@ const GfgCard = () => {
 
   useEffect(()=>{
     try{
-      axios.get("http://localhost:3000/api/platformRatings/gfg",{
+      axios.get("https://dev-journey-zeta.vercel.app/api/platformRatings/gfg",{
         headers:{
             authorization:localStorage.getItem("token")
         } 

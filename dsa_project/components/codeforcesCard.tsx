@@ -17,7 +17,7 @@ export default function CodeforcesCard(){
   useEffect(()=>{
     try{
       
-      axios.get("http://localhost:3000/api/platformRatings/codeforces",{
+      axios.get("https://dev-journey-zeta.vercel.app/api/platformRatings/codeforces",{
         headers:{
             authorization:localStorage.getItem("token")
         } 
