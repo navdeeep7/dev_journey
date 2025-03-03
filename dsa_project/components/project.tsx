@@ -47,7 +47,7 @@ export default function ProjectCard({project,handleDelete}){
       
     // </button>
     //     </div>
-    <div className="bg-cardBlue-custom rounded-xl shadow-lg m-4 p-5 transform transition-all duration-300 hover:shadow-xl border border-blue-700/30 w-full">
+    <div className="bg-cardBlue-custom rounded-xl shadow-lg my-2 p-5 transform transition-all duration-300 hover:shadow-xl border border-blue-700/30 w-full">
   <div className="flex flex-col space-y-4">
     {/* Header with title */}
     <div className="flex justify-between items-center">
