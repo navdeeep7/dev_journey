@@ -47,16 +47,16 @@ export default function ProjectCard({project,handleDelete}){
       
     // </button>
     //     </div>
-    <div className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-xl shadow-lg p-5 transform transition-all duration-300 hover:scale-102 hover:shadow-xl border border-blue-700/30 w-full">
-  <div className="flex flex-col space-y-3">
+    <div className="bg-cardBlue-custom rounded-xl shadow-lg m-4 p-5 transform transition-all duration-300 hover:shadow-xl border border-blue-700/30 w-full">
+  <div className="flex flex-col space-y-4">
     {/* Header with title */}
     <div className="flex justify-between items-center">
-      <h1 className="text-white text-3xl font-bold tracking-tight">{project.Title}</h1>
-      <div className="flex space-x-2">
+      <h1 className="text-gray-300 text-3xl font-bold tracking-tight">{project.Title}</h1>
+      <div className="flex space-x-3">
         {/* GitHub button */}
         <a 
           href={project.Github_link} 
-          className="flex items-center justify-center p-2 rounded-lg bg-gray-800/40 hover:bg-gray-800/70 text-gray-300 hover:text-white transition-colors"
+          className="flex items-center justify-center p-2 rounded-lg bg-blue-800/40 hover:bg-blue-800/70 text-gray-300 hover:text-white transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -67,7 +67,7 @@ export default function ProjectCard({project,handleDelete}){
         {/* Live demo button */}
         <a 
           href={project.Project_link} 
-          className="flex items-center justify-center p-2 rounded-lg bg-gray-800/40 hover:bg-gray-800/70 text-gray-300 hover:text-white transition-colors"
+          className="flex items-center justify-center p-2 rounded-lg bg-blue-800/40 hover:bg-blue-800/70 text-gray-300 hover:text-white transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -79,12 +79,36 @@ export default function ProjectCard({project,handleDelete}){
     </div>
     
     {/* Description */}
-    <p className="text-blue-100 text-sm leading-relaxed">
-      {project.Description}
-    </p>
+    <div className="mx-1">
+      <h3 className="text-gray-400 mb-2">Description: <span className="text-gray-300">{project.Description}</span></h3>
+      
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
+        <h3 className="text-gray-400">Github Link:</h3>
+        <a 
+          href={project.Github_link} 
+          className="text-blue-300 hover:text-blue-200 underline transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </a>
+      </div>
+      
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
+        <h3 className="text-gray-400">Deployment Link:</h3>
+        <a 
+          href={project.Project_link} 
+          className="text-blue-300 hover:text-blue-200 underline transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {project.Title}
+        </a>
+      </div>
+    </div>
     
     {/* Tags */}
-    <div className="flex flex-wrap gap-2 mt-2">
+    <div className="flex flex-wrap gap-2 mx-1">
       {array.map((tag: any, key: any) => (
         <span 
           key={key} 
@@ -96,10 +120,10 @@ export default function ProjectCard({project,handleDelete}){
     </div>
     
     {/* Delete button */}
-    <div className="pt-2">
+    <div className="mt-4 mx-1">
       <button
         onClick={onDelete}
-        className="group flex items-center justify-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 text-white font-medium rounded-lg shadow hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 transition duration-300 ease-in-out"
+        className="group flex items-center justify-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 transition duration-300 ease-in-out"
       >
         <Trash2 size={18} className="mr-2 group-hover:scale-110 transition-transform" />
         <span>{loading ? "Deleting..." : "Delete Project"}</span>
