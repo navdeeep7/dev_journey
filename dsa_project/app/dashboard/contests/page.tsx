@@ -91,24 +91,47 @@ export default function Contests(){
    
 
 
-    useEffect(()=>{
-        try{
-            axios.get("/api/proxy")
-            .then(res => {
-              setCodeforcesContests(res.data.result);
-              console.log(res.data.result);
-              if (res.data) {
-                setforcesLoading(false);
-              }
-            })
+    // useEffect(()=>{
+    //     try{
+    //         axios.get("/api/proxy")
+    //         .then(res => {
+    //           setCodeforcesContests(res.data.result);
+    //           console.log(res.data.result);
+    //           if (res.data) {
+    //             setforcesLoading(false);
+    //           }
+    //         })
             
-            const upcomingContests = codeforcesContests.filter((contest:any) => contest.phase === "BEFORE").sort((a, b) => a.startTimeSeconds - b.startTimeSeconds).slice(0, 2); 
-            setCodeforcesContests(upcomingContests);
-        }
-        catch{
-            alert("error while fetching data,please refresh")
-        }
-    },[])
+    //         const upcomingContests = codeforcesContests.filter((contest:any) => contest.phase === "BEFORE").sort((a, b) => a.startTimeSeconds - b.startTimeSeconds).slice(0, 2); 
+    //         setCodeforcesContests(upcomingContests);
+    //     }
+    //     catch{
+    //         alert("error while fetching data,please refresh")
+    //     }
+    // },[])
+    useEffect(() => {
+        const fetchContests = async () => {
+          try {
+            const res = await axios.get("/api/proxy");
+            const contests = res.data.result;
+      
+            if (contests) {
+              const upcomingContests = contests
+                .filter((contest: any) => contest.phase === "BEFORE")
+                .sort((a:any, b:any) => a.startTimeSeconds - b.startTimeSeconds)
+                .slice(0, 2);
+      
+              setCodeforcesContests(upcomingContests);
+              setforcesLoading(false);
+            }
+          } catch {
+            alert("Error while fetching data, please refresh");
+          }
+        };
+      
+        fetchContests();
+      }, []);
+      
  
 
 
