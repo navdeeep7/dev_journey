@@ -101,6 +101,9 @@ export default function Contests(){
                 setforcesLoading(false);
               }
             })
+            
+            const upcomingContests = codeforcesContests.filter((contest:any) => contest.phase === "BEFORE").sort((a, b) => a.startTimeSeconds - b.startTimeSeconds).slice(0, 2); 
+            setCodeforcesContests(upcomingContests);
         }
         catch{
             alert("error while fetching data,please refresh")
@@ -189,8 +192,9 @@ export default function Contests(){
   <div className="w-1/2 h-8 bg-cardBlue-light rounded"></div>
 </div>
             </div>:<div className="md:flex  grid grid-cols-2 gap-3">
-            <CodeforcesContestCard contestInfo={codeforcesContests[4]}/>
-            <CodeforcesContestCard contestInfo={codeforcesContests[3]}/>
+            {codeforcesContests.map((contest:any) => (
+  <CodeforcesContestCard key={contest.id} contestInfo={contest} />
+))}
             </div>}
              
             </div>
