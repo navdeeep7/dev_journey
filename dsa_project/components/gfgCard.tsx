@@ -44,7 +44,7 @@ const GfgCard = () => {
         <div>
           {/* <h2 className="text-2xl font-md text-white ml-2">{userData.username}</h2> */}
           <h2 className="text-2xl font-md text-white ml-2">
-  {userData?.info.username || 'Guest'}
+  {userData?.info.userName || 'John'}
 </h2>
           
         </div>
