@@ -109,6 +109,29 @@ export default function Contests(){
     //         alert("error while fetching data,please refresh")
     //     }
     // },[])
+    // useEffect(() => {
+    //     const fetchContests = async () => {
+    //       try {
+    //         const res = await axios.get("/api/proxy");
+    //         const contests = res.data.result;
+      
+    //         if (contests) {
+    //           const upcomingContests = contests
+    //             .filter((contest: any) => contest.phase === "BEFORE")
+    //             .sort((a:any, b:any) => a.startTimeSeconds - b.startTimeSeconds)
+    //             .slice(0, 2);
+      
+    //           setCodeforcesContests(upcomingContests);
+    //           setforcesLoading(false);
+    //         }
+    //       } catch {
+    //         alert("Error while fetching data, please refresh");
+    //       }
+    //     };
+      
+    //     fetchContests();
+    //   }, []);
+      
     useEffect(() => {
         const fetchContests = async () => {
           try {
@@ -116,9 +139,10 @@ export default function Contests(){
             const contests = res.data.result;
       
             if (contests) {
+              const currentTime = Math.floor(Date.now() / 1000); // Get current time in seconds
               const upcomingContests = contests
-                .filter((contest: any) => contest.phase === "BEFORE")
-                .sort((a:any, b:any) => a.startTimeSeconds - b.startTimeSeconds)
+                .filter((contest: any) => contest.startTimeSeconds > currentTime) // Only future contests
+                .sort((a: any, b: any) => a.startTimeSeconds - b.startTimeSeconds)
                 .slice(0, 2);
       
               setCodeforcesContests(upcomingContests);
@@ -132,7 +156,6 @@ export default function Contests(){
         fetchContests();
       }, []);
       
- 
 
 
 
