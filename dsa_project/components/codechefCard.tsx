@@ -72,7 +72,7 @@ export function CodechefCard(){
         console.error("Error fetching data:", error);
       } finally {
         // ✅ Ensures loading is set to false even if the API call fails
-        setLoading(false);
+        // setLoading(false);
       }
     };
 
