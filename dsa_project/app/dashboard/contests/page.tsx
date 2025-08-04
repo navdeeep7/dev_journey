@@ -277,7 +277,7 @@ useEffect(() => {
             </div>
 
             <div className="">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
+            <div className="text-2xl text-white font-semibold mb-2 ">
                 LeetCode Contests
             </div>
             {leetcodefLoading?<div className="flex">
@@ -294,7 +294,7 @@ useEffect(() => {
   <div className="w-full h-4 bg-cardBlue-light rounded mb-4"></div>
   <div className="w-1/2 h-8 bg-cardBlue-light rounded"></div>
 </div>
-            </div>: <div className="md:flex  grid grid-cols-2 gap-3">
+            </div>: <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
             <LeetcodeContestCard contestInfo={leetcodeContests[0]}/>
             <LeetcodeContestCard contestInfo={leetcodeContests[1]}/>
             </div>}
