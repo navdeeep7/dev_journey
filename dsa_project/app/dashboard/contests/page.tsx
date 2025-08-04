@@ -132,31 +132,62 @@ export default function Contests(){
     //     fetchContests();
     //   }, []);
       
-    useEffect(() => {
-        const fetchContests = async () => {
-          try {
-            const res = await axios.get("/api/proxy");
-            const contests = res.data.result;
+    // useEffect(() => {
+    //     const fetchContests = async () => {
+    //       try {
+    //         const res = await axios.get("/api/proxy");
+    //         const contests = res.data.result;
       
-            if (contests) {
-              const currentTime = Math.floor(Date.now() / 1000); // Get current time in seconds
-              const upcomingContests = contests
-                .filter((contest: any) => contest.startTimeSeconds > currentTime) // Only future contests
-                .sort((a: any, b: any) => a.startTimeSeconds - b.startTimeSeconds)
-                .slice(0, 2);
+    //         if (contests) {
+    //           const currentTime = Math.floor(Date.now() / 1000); // Get current time in seconds
+    //           const upcomingContests = contests
+    //             .filter((contest: any) => contest.startTimeSeconds > currentTime) // Only future contests
+    //             .sort((a: any, b: any) => a.startTimeSeconds - b.startTimeSeconds)
+    //             .slice(0, 2);
       
-              setCodeforcesContests(upcomingContests);
-              setforcesLoading(false);
-            }
-          } catch {
-            alert("Error while fetching data, please refresh");
-          }
-        };
+    //           setCodeforcesContests(upcomingContests);
+    //           setforcesLoading(false);
+    //         }
+    //       } catch {
+    //         alert("Error while fetching data, please refresh");
+    //       }
+    //     };
       
-        fetchContests();
-      }, []);
+    //     fetchContests();
+    //   }, []);
       
+useEffect(() => {
+  const fetchContests = async () => {
+    try {
+      const res = await axios.get("/api/proxy");
+      const contests = res.data.result;
 
+      if (contests && Array.isArray(contests)) {
+        const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+        
+        const upcomingContests = contests
+          .filter((contest) => {
+            // Filter for upcoming contests (phase is "BEFORE" and start time is in future)
+            return contest.phase === "BEFORE" && contest.startTimeSeconds > currentTime;
+          })
+          .sort((a, b) => a.startTimeSeconds - b.startTimeSeconds) // Sort by start time (earliest first)
+          .slice(0, 2); // Get only the first 2 upcoming contests
+
+        setCodeforcesContests(upcomingContests);
+        setforcesLoading(false);
+      } else {
+        console.error("Invalid contests data received");
+        setforcesLoading(false);
+      }
+    } catch (error) {
+      console.error("Error fetching contests:", error);
+      setforcesLoading(false);
+      alert("Error while fetching data, please refresh");
+    }
+  };
+
+  fetchContests();
+}, []);
 
 
 
