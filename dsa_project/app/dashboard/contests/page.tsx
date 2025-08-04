@@ -216,7 +216,7 @@ useEffect(() => {
     },[])
     return(
         <div className="h-screen bg-darkBlue-custom   ">
-           <div className="h-5/6  overflow-y-auto grid grid-cols-1 md:grid xl:grid-cols-2 3xl:grid-cols-3">
+           <div className="h-5/6  overflow-y-auto mr-3 grid grid-cols-1 md:grid xl:grid-cols-2 3xl:grid-cols-3">
 
             <div id="codechef contests" >
             <div className="text-2xl text-white font-semibold mb-2 ">
