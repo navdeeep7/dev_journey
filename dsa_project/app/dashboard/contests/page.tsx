@@ -239,7 +239,7 @@ useEffect(() => {
   <div className="w-full h-4 bg-cardBlue-light rounded mb-4"></div>
   <div className="w-1/2 h-8 bg-cardBlue-light rounded"></div>
 </div>
-            </div>:  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            </div>:  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
 
             {codechefContests.map((contest,index)=><CodechefContestCard key={index} contestInfo={contest}/>)}
             
@@ -277,7 +277,7 @@ useEffect(() => {
             </div>
 
             <div className="">
-            <div className="text-2xl text-white font-semibold mb-2 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
                 LeetCode Contests
             </div>
             {leetcodefLoading?<div className="flex">
