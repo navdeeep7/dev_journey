@@ -385,7 +385,7 @@ export function CodechefContestCard({ contestInfo }: any) {
   };
 
   return (
-    <div className="w-full max-w-sm">
+    <div className="w-full ">
       <div className="bg-cardBlue-custom text-white flex flex-col p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
         <div className="text-center text-lg font-bold mb-4 line-clamp-2">
           {contestInfo.contest_code}
@@ -470,7 +470,7 @@ export function CodeforcesContestCard({ contestInfo }: any) {
   };
 
   return (
-    <div className="w-full max-w-sm">
+    <div className="w-full ">
       <div className="bg-cardBlue-custom text-white flex flex-col p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
         <div className="text-center text-lg font-bold mb-4 line-clamp-2">
           {contestInfo.name}
@@ -555,7 +555,7 @@ export function LeetcodeContestCard({ contestInfo }: any) {
   };
 
   return (
-    <div className="w-full max-w-sm">
+    <div className="w-full ">
       <div className="bg-cardBlue-custom text-white flex flex-col p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
         <div className="text-center text-lg font-bold mb-4 line-clamp-2">
           {contestInfo.title}
