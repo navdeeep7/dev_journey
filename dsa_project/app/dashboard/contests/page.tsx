@@ -197,9 +197,9 @@ useEffect(() => {
 
     useEffect(()=>{
         try{
-            axios.get("https://proxy.cors.sh/https://www.codechef.com/api/list/contests/all?sort_by=START&sorting_order=asc&offset=0&mode=all",{
+            axios.get("/api/codechefContestProxy",{
                 headers:{
-                    "x-cors-api-key":"temp_adfb017fadb769bcaf560cce1ff7479f"
+                    
                 }
             }).then(res=>{
                 setCodechefContests(res.data.future_contests);
