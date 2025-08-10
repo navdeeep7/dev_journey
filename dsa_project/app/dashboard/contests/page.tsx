@@ -57,37 +57,68 @@ export default function Contests(){
         
         
     }]);
-    useEffect(()=>{
-        axios.post('https://proxy.cors.sh/https://leetcode.com/graphql', {
-            query: `
-                query {
-                    allContests {
-                        title
-                        startTime
-                        duration
+    // useEffect(()=>{
+    //     axios.post('https://proxy.cors.sh/https://leetcode.com/graphql', {
+    //         query: `
+    //             query {
+    //                 allContests {
+    //                     title
+    //                     startTime
+    //                     duration
                         
-                    }
-                }
-            `
-        }, {
-            headers: {
-                'Content-Type': 'application/json',
-                "x-cors-api-key":"temp_adfb017fadb769bcaf560cce1ff7479f"
-            }
-        })
-        .then(response => {
-            setLeetcodeCOntests(response.data.data.allContests);
-            if(response.data){
-                setLeetcodeLoading(false);
-            }
-            console.log(response.data.data.allContests);
-        })
-        .catch(error => {
-            console.error('Error fetching contests:', error);
-            return [];
-        });
-    },[])
+    //                 }
+    //             }
+    //         `
+    //     }, {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             "x-cors-api-key":"temp_adfb017fadb769bcaf560cce1ff7479f"
+    //         }
+    //     })
+    //     .then(response => {
+    //         setLeetcodeCOntests(response.data.data.allContests);
+    //         if(response.data){
+    //             setLeetcodeLoading(false);
+    //         }
+    //         console.log(response.data.data.allContests);
+    //     })
+    //     .catch(error => {
+    //         console.error('Error fetching contests:', error);
+    //         return [];
+    //     });
+    // },[])
  
+
+    // Modified useEffect to use your proxy
+useEffect(() => {
+    axios.post('/api/leetcodeProxy', {
+        query: `
+            query {
+                allContests {
+                    title
+                    startTime
+                    duration                                             
+                }
+            }
+        `
+    }, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        setLeetcodeCOntests(response.data.data.allContests);
+        if(response.data){
+            setLeetcodeLoading(false);
+        }
+        console.log(response.data.data.allContests);
+    })
+    .catch(error => {
+        console.error('Error fetching contests:', error);
+        setLeetcodeLoading(false); // Don't forget to stop loading on error
+        return [];
+    });
+}, [])
    
 
 
