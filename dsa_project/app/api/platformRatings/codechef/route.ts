@@ -29,7 +29,7 @@ export async function GET(req:NextRequest){
            var userName=user.Codechef_username;
             
          
-            var userData=await axios.get(`https://codechef-api.vercel.app/handle/${userName}`);
+            var userData=await axios.get(`https://codechef-api-gamma.vercel.app/handle/${userName}`);
                 
                 
            if(userData.data){
