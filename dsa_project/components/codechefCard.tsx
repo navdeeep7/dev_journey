@@ -66,7 +66,7 @@ export function CodechefCard(){
 
         if (res.data.success) {
           setUserData(res.data.userData);
-         
+         setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -102,6 +102,7 @@ export function CodechefCard(){
                 
                 <InfoRow label="Country"  value={userData.countryName} />
                 <InfoRow label="Rating" value={userData.currentRating} title="Provisional Rating, click to know more" />
+                <InfoRow label="Max Rating" value={userData.highestRating} />
                 <InfoRow label="Global Rank" value={userData.globalRank} />
                 <InfoRow label="Country Rank" value={userData.countryRank} />
                 <InfoRow label="Stars" value={<span className="text-yellow-400">{userData.stars}</span>} />
