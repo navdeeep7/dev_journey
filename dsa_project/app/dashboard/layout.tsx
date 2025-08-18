@@ -72,7 +72,7 @@ export default function RootLayout({
               <div className="bg-cardBlue-custom p-2 m-3 rounded-xl justify-between hidden md:flex ">
               <Link href="/" className="text-white cursor-pointer  flex  text-4xl font-thin items-center">
   <div className='text-white cursor-pointer  flex text-4xl font-'>
-  &lt;/&gt;DevJourney.com
+  &lt;/&gt;DevJourney
   </div>
   </Link>
   
