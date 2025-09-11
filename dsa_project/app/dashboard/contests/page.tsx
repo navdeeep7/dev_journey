@@ -203,7 +203,7 @@ useEffect(() => {
           })
           .sort((a, b) => a.startTimeSeconds - b.startTimeSeconds) // Sort by start time (earliest first)
           .slice(0, 2); // Get only the first 2 upcoming contests
-
+        console.log(upcomingContests);
         setCodeforcesContests(upcomingContests);
         setforcesLoading(false);
       } else {

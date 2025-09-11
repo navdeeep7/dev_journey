@@ -2,9 +2,9 @@
 "use client"
 import Link from 'next/link'
 
-// CodeChef Contest Card (already correct)
+
 export function CodechefContestCard({ contestInfo }: any) {
-  // Format the start date for display
+  
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleString('en-US', {
@@ -17,7 +17,7 @@ export function CodechefContestCard({ contestInfo }: any) {
     });
   };
 
-  // Function to format duration nicely
+ 
   const formatDuration = (durationMinutes: string | number) => {
     const minutes = parseInt(durationMinutes.toString());
     const hours = Math.floor(minutes / 60);
@@ -29,7 +29,7 @@ export function CodechefContestCard({ contestInfo }: any) {
     return `${minutes} minutes`;
   };
 
-  // Function to create Google Calendar URL
+
   const createGoogleCalendarUrl = () => {
     const startDate = new Date(contestInfo.contest_start_date);
     const endDate = new Date(startDate);
@@ -95,7 +95,6 @@ export function CodechefContestCard({ contestInfo }: any) {
   );
 }
 
-// Codeforces Contest Card (removed mx-auto)
 export function CodeforcesContestCard({ contestInfo }: any) {
   const date = new Date(contestInfo.startTimeSeconds * 1000).toLocaleString('en-US', {
     year: 'numeric',
@@ -180,7 +179,6 @@ export function CodeforcesContestCard({ contestInfo }: any) {
   );
 }
 
-// LeetCode Contest Card (removed mx-auto)
 export function LeetcodeContestCard({ contestInfo }: any) {
   const date = new Date(contestInfo.startTime * 1000).toLocaleString('en-US', {
     year: 'numeric',
