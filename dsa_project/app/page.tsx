@@ -13,10 +13,13 @@ export default function Home() {
   &lt;/&gt;DevJourney.com
   </div>
   <div className=' relative  '>
-    <div className='h-screen  bg-black'>
-    <Spline className='hidden md:block'
+    <div className='h-screen  bg-black ml-40'>
+    {/* <Spline className='hidden md:block'
         scene="https://prod.spline.design/HebvSUgFe4zNf0rF/scene.splinecode" 
-      /> 
+      />  */}
+       <Spline
+        scene="https://prod.spline.design/YKXVZaR9-NNycym9/scene.splinecode" 
+      />
     </div>
     <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white  z-10 grid  grid-cols-1 md:grid-cols-2 w-screen  ' >
     <div className='p-4 w-5/6 bg-black ml-2 rounded-xl border-black md:bg-transparent md:ml-0'>
