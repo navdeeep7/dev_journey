@@ -136,7 +136,7 @@ export default function JobSearchPage() {
                     value={formData.keyword}
                     onChange={handleInputChange}
                     placeholder="e.g. Software Engineer"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-800 "
                   />
                 </div>
 
@@ -151,7 +151,7 @@ export default function JobSearchPage() {
                     value={formData.location}
                     onChange={handleInputChange}
                     placeholder="e.g. New York, NY"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full  bg-gray-800 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                   />
                 </div>
               </div>
@@ -167,7 +167,7 @@ export default function JobSearchPage() {
                     name="dateSincePosted"
                     value={formData.dateSincePosted}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 text-gray-400  bg-gray-800 py-3  border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="past month">Past Month</option>
                     <option value="past week">Past Week</option>
@@ -184,7 +184,7 @@ export default function JobSearchPage() {
                     name="jobType"
                     value={formData.jobType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 text-gray-400 bg-gray-800 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="full time">Full Time</option>
                     <option value="part time">Part Time</option>
@@ -197,14 +197,14 @@ export default function JobSearchPage() {
 
                 <div className="space-y-2">
                   <label className="flex items-center text-sm font-medium text-white">
-                    <Globe className="w-4 h-4 mr-2 text-indigo-500" />
+                    <Globe className="w-4 h-4 mr-2 text-indigo-500 " />
                     Remote
                   </label>
                   <select
                     name="remoteFilter"
                     value={formData.remoteFilter}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border text-gray-400 bg-gray-800 border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="on site">On Site</option>
                     <option value="remote">Remote</option>
@@ -221,7 +221,7 @@ export default function JobSearchPage() {
                     name="salary"
                     value={formData.salary}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 text-gray-400 bg-gray-800 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="40000">$40,000+</option>
                     <option value="60000">$60,000+</option>
@@ -243,7 +243,7 @@ export default function JobSearchPage() {
                     name="experienceLevel"
                     value={formData.experienceLevel}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 text-gray-400 bg-gray-800 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="internship">Internship</option>
                     <option value="entry level">Entry Level</option>
@@ -263,7 +263,7 @@ export default function JobSearchPage() {
                     name="limit"
                     value={formData.limit}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full text-gray-400 bg-gray-800 focus:bg-gray-800 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="10">10 Jobs</option>
                     <option value="25">25 Jobs</option>
@@ -278,7 +278,7 @@ export default function JobSearchPage() {
                     name="sortBy"
                     value={formData.sortBy}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 text-gray-400 bg-gray-800 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="recent">Most Recent</option>
                     <option value="relevant">Most Relevant</option>
