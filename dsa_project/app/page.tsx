@@ -220,7 +220,7 @@ export default function Home(): JSX.Element {
             <Badge className="bg-blue-500/20 border-blue-400/30 text-blue-200 px-4 py-2">Supported Platforms</Badge>
             <h2 className="text-4xl lg:text-5xl font-bold text-balance text-white">Connect with All Major Platforms</h2>
             <p className="text-xl text-gray-300 text-pretty max-w-2xl mx-auto">
-              Seamlessly integrate with the world's leading competitive programming platforms
+              Seamlessly integrate with the world&apos;s leading competitive programming platforms
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
