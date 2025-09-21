@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
 import { stringify } from "querystring";
-
+import DecryptedText from "@/components/DecryptedText";
 
 export default function RootLayout({
     children,
@@ -78,62 +78,22 @@ export default function RootLayout({
   </Link>
   
         <div className="flex items-center -mt-2">
-        {/* <div className="text-white text-2xl pr-2 ">                
-          Hello {name}
-        </div> */}
-  <div 
-      className={`mt-2 mr-4
-        text-white text-2xl pr-2 cursor-pointer
-        transform transition-all duration-300 ease-in-out
-        ${isHovered ? 'scale-105' : 'scale-100'}
-        relative group
-      `}
-      onMouseEnter={() => setIsHovered(false)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Animated background glow */}
-      <div className={`
-        absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20
-        rounded-lg blur-sm transition-opacity duration-300
-        ${isHovered ? 'opacity-100' : 'opacity-0'}
-      `} />
-      
-      {/* Main text content */}
-      <div className="relative z-10 flex items-center space-x-2 px-3 py-2">
-        <span className="text-white/80">Hello</span>
-        <span className={`
-          font-semibold bg-gradient-to-r from-cyan-400 to-blue-400 
-          bg-clip-text text-transparent
-          transition-all duration-300
-          ${isHovered ? 'from-cyan-300 to-purple-300' : ''}
-        `}>
-          {name}
-        </span>
-        
-        {/* Animated wave emoji */}
-        <span className={`
-          inline-block transition-transform duration-300
-          ${isHovered ? 'animate-pulse rotate-12' : ''}
-        `}>
-          👋
-        </span>
-      </div>
-      
-      {/* Subtle underline animation */}
-      <div className={`
-        absolute bottom-0 left-1/2 transform -translate-x-1/2
-        h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400
-        transition-all duration-300 ease-out
-        ${isHovered ? 'w-full' : 'w-0'}
-      `} />
-      
-      {/* Optional: Sparkle effect on hover */}
-      {isHovered && (
-        <div className="absolute -top-1 -right-1 text-yellow-400 text-sm animate-ping">
-          ✨
+        <div className="text-white text-2xl pr-2 ">                
+          {/* Hello {name} */}
+       
+<DecryptedText
+      text={`Hello ${name}`}
+      speed={100}
+      maxIterations={25}
+      characters="ABCD1234!?"
+      className="revealed"
+      animateOn="view"
+      revealDirection="center"
+      parentClassName="all-letters"
+      encryptedClassName="encrypted"
+    />
         </div>
-      )}
-    </div>
+
 
 
 

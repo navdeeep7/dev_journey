@@ -1,9 +1,13 @@
 
-
+'use client'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { TextLoop } from '@/components/motion-primitives/text-loop';
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
+import TextType from '@/components/TextType';
+import DecryptedText from "@/components/DecryptedText"
 import {
   Code2,
   Trophy,
@@ -80,13 +84,21 @@ export default function Home(): JSX.Element {
                 </Badge>
                 <h1 className="text-5xl lg:text-7xl font-bold text-balance leading-tight">
                   <span className="text-white">Track Your</span>
-                  <span className="block text-white bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
-                    Coding Journey
+                  <span className="block text-white bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent ">
+                  
+        <div className="relative z-10 pb-2 pr-2">Coding Journey</div>
+    
                   </span>
                 </h1>
-                <p className="text-xl lg:text-2xl text-gray-300 text-pretty leading-relaxed max-w-xl">
-                  Unify your progress across all major coding platforms. Find your dream job and never miss a contest.
-                </p>
+                <div className="text-xl lg:text-2xl text-gray-300 text-pretty leading-relaxed max-w-xl">
+                  <TextType 
+  text={["Track Coding Profiles", "Never Miss A Contest", "Find Your Dream Job","Explore Projects"]}
+  typingSpeed={75}
+  pauseDuration={1500}
+  showCursor={true}
+  cursorCharacter="|"
+/>
+                </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-6">
                  <Link href="/dashboard/platformRatings">

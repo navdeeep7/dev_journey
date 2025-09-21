@@ -2,6 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
+import DecryptedText from './DecryptedText'
 const navigation = [
   { name: 'Contests', href: '/dashboard/contests', current: false},
   { name: 'Platform Ratings', href: '/dashboard/platformRatings', current: false },
@@ -54,6 +55,7 @@ export default function Navbar({name}:any) {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
            <div className='text-white text-lg font-semibold'>
             Hello {name}
+            
            </div>
 
             
