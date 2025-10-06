@@ -23,7 +23,7 @@ export default function Signin(){
     function handleSignin(){
         setLoading(true)
         axios.post("https://dev-journey-zeta.vercel.app/api/user/signin",signinInput).then(res=>{
-            alert(res.data.msg);
+           
             setLoading(false)
             if(res.data.success){
                 router.push("/dashboard/platformRatings")
