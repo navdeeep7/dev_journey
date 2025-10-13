@@ -156,13 +156,13 @@ export default function RootLayout({
             setExploreProjects(true);
             router.push("/dashboard/exploreProjects")
            }}>Explore Projects </div>
-           <div className={`hover:bg-hoverBlue-custom p-2 my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `}  onClick={()=>{
+           {/* <div className={`hover:bg-hoverBlue-custom p-2 my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `}  onClick={()=>{
             router.push("/signup")
            }}>Sign Up </div>
            
            <div className={`hover:bg-hoverBlue-custom p-2  my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `}  onClick={()=>{
             router.push("/signin")
-           }}>Sign In </div>
+           }}>Sign In </div> */}
            </div>
            
         </div>
