@@ -17,8 +17,8 @@ export default function Signin(){
     setIsPasswordVisible((prevState) => !prevState);
   }
     const [signinInput,setSigninput]=useState<SignInput>({
-        email: 'navdeep@gmail.com',
-        password: 'navdeep12'
+        email: 'khushi@gmail.com',
+        password: 'khushi12'
     })
     function handleSignin(){
         setLoading(true)
