@@ -13,7 +13,7 @@ export async function POST(req:NextRequest){
     
     try{
         const user=await User.findOne({email:body.email,password:body.password});
-    if(user){
+       if(user){
         const token=jwt.sign({userId:user._id,email:user.email},"secret");
         return NextResponse.json({msg:"Successfully logged in",
             token:token,

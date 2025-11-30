@@ -8,6 +8,7 @@ export async function POST(req:NextRequest){
     if(body.password===""){
         return NextResponse.json({msg:"password is required",status:false})
     }
+    
     connectToDb();
     
     const userExist=await User.findOne({email:body.email});

@@ -21,7 +21,7 @@ const GfgCard = () => {
     }).then(res=>{
         setUserData(res.data.userData);
         if(res.status===200){
-          setLoading(false);
+          setLoading(true);
         }
       })
     }
@@ -32,13 +32,15 @@ const GfgCard = () => {
   },[])
   return (
     <div>
-      {loading? <div className="skeleton-loader  h-80 bg-cardBlue-custom rounded-lg shadow-md p-6 shadow-md p-6 animate-pulse">
-          <div className="w-3/4 h-6 bg-cardBlue-light rounded mb-4"></div>
-          <div className="w-full h-4 bg-cardBlue-light rounded mb-2"></div>
-          <div className="w-full h-4 bg-cardBlue-light rounded mb-2"></div>
-          <div className="w-full h-4 bg-cardBlue-light rounded mb-4"></div>
-          <div className="w-1/2 h-8 bg-cardBlue-light rounded"></div>
-        </div>:<div className="bg-cardBlue-custom rounded-lg shadow-md p-6 ">
+      {loading?  <div> </div>
+      // <div className="skeleton-loader  h-80 bg-cardBlue-custom rounded-lg shadow-md p-6 shadow-md p-6 animate-pulse">
+      //     <div className="w-3/4 h-6 bg-cardBlue-light rounded mb-4"></div>
+      //     <div className="w-full h-4 bg-cardBlue-light rounded mb-2"></div>
+      //     <div className="w-full h-4 bg-cardBlue-light rounded mb-2"></div>
+      //     <div className="w-full h-4 bg-cardBlue-light rounded mb-4"></div>
+      //     <div className="w-1/2 h-8 bg-cardBlue-light rounded"></div>
+      //   </div> 
+        :<div className="bg-cardBlue-custom rounded-lg shadow-md p-6 ">
       <div className="flex items-center mb-4">
         <CodingLogo />
         <div>
