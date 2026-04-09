@@ -112,7 +112,7 @@ export default function RootLayout({
       <div className="flex justify-center md:grid md:grid-cols-6 overflow-y-hidden">
         <div className="bg-cardBlue-custom flex flex-col mx-3 rounded-xl h-full  items-center hidden md:flex">
            <div className="flex flex-col text-md mt-4">
-           
+{/*            
            <div className={`hover:bg-hoverBlue-custom p-2  pr-6 hover:text-white ${rating ? 'bg-hoverBlue-custom text-white' : ""} rounded-lg text-textBlue-custom cursor-pointer `}  onClick={()=>{
             setContest(false);
             setJob(false);
@@ -155,7 +155,7 @@ export default function RootLayout({
             setProject(false);
             setExploreProjects(true);
             router.push("/dashboard/exploreProjects")
-           }}>Explore Projects </div>
+           }}>Explore Projects </div> */}
            {/* <div className={`hover:bg-hoverBlue-custom p-2 my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `}  onClick={()=>{
             router.push("/signup")
            }}>Sign Up </div>
