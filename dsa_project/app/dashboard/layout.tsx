@@ -122,6 +122,15 @@ export default function RootLayout({
 
             router.push("/dashboard/platformRatings")
            }}>Platform Ratings </div>
+            <div className={`hover:bg-hoverBlue-custom p-2 ${job ? 'bg-hoverBlue-custom text-white' : ""} my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `} onClick={()=>{
+            setContest(false);
+            setJob(true);
+            setRating(false);
+            setProject(false);
+            setExploreProjects(false);
+
+            router.push("/dashboard/jobs")
+           }}>Jobs </div>
            {/* <div className={`hover:bg-hoverBlue-custom p-2 ${contest ? 'bg-hoverBlue-custom text-white' : ""} my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `} onClick={()=>{
             setContest(true);
             setJob(false);
