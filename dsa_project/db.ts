@@ -3,10 +3,12 @@ import mongoose from 'mongoose';
 const MONGO_URI = 'mongodb+srv://navis12ns:82UIWvjG4egWGYeP@cluster0.u5l2cmk.mongodb.net/dev_journeyDB';
 
 // Function to connect to MongoDB
-async function connectToDb(){ 
+async function connectToDb(){
   try {
-     mongoose.connect(MONGO_URI,{});
-    console.log('MongoDB connected');
+    if (mongoose.connection.readyState === 0) {
+      await mongoose.connect(MONGO_URI, {});
+      console.log('MongoDB connected');
+    }
   } catch (error) {
     console.error('MongoDB connection error:', error);
     throw new Error('Failed to connect to MongoDB');
@@ -33,7 +35,6 @@ const projectSchema=new mongoose.Schema({
   Github_link:String
 
 })
-connectToDb();
 let User:any;
 let Project:any;
 try {

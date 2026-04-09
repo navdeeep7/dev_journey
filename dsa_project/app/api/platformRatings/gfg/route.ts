@@ -1,6 +1,8 @@
 import { NextRequest,NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import {User,connectToDb} from "@/db"
+
+export const dynamic = 'force-dynamic';
 import { headers } from 'next/headers';
 import axios from "axios";
 export async function GET(req:NextRequest){
