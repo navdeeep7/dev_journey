@@ -1,6 +1,5 @@
-import {User} from "@/db"
+import {User, connectToDb} from "@/db"
 import { NextRequest, NextResponse } from "next/server";
-import { NextApiRequest, NextApiResponse } from 'next';
 import jwt from "jsonwebtoken";
 
 export async function POST(req:NextRequest){
@@ -9,9 +8,9 @@ export async function POST(req:NextRequest){
         return NextResponse.json({msg:"password is required",
             success:false})
     }
-    
-    
+
     try{
+        await connectToDb();
         const user=await User.findOne({email:body.email,password:body.password});
        if(user){
         const token=jwt.sign({userId:user._id,email:user.email},"secret");
