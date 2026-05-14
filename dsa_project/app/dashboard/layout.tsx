@@ -131,7 +131,7 @@ export default function RootLayout({
 
             router.push("/dashboard/jobs")
            }}>Jobs </div>
-           {/* <div className={`hover:bg-hoverBlue-custom p-2 ${contest ? 'bg-hoverBlue-custom text-white' : ""} my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `} onClick={()=>{
+           <div className={`hover:bg-hoverBlue-custom p-2 ${contest ? 'bg-hoverBlue-custom text-white' : ""} my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `} onClick={()=>{
             setContest(true);
             setJob(false);
             setRating(false);
@@ -164,14 +164,14 @@ export default function RootLayout({
             setProject(false);
             setExploreProjects(true);
             router.push("/dashboard/exploreProjects")
-           }}>Explore Projects </div> */}
-           {/* <div className={`hover:bg-hoverBlue-custom p-2 my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `}  onClick={()=>{
+           }}>Explore Projects </div>
+           <div className={`hover:bg-hoverBlue-custom p-2 my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `}  onClick={()=>{
             router.push("/signup")
            }}>Sign Up </div>
            
            <div className={`hover:bg-hoverBlue-custom p-2  my-0.5 hover:text-white rounded-lg text-textBlue-custom cursor-pointer `}  onClick={()=>{
             router.push("/signin")
-           }}>Sign In </div> */}
+           }}>Sign In </div>
            </div>
            
         </div>
